@@ -22,8 +22,8 @@ nick2 = gets.chomp
 player_two = (nick2)
 puts "Welcome: #{player_two}"
 
-player_1 = $stdin.read
-puts inp
+# player_1 = $stdin.read
+# puts inp
 
 # def fill 
 #     @pos =  (1..9).to_a
@@ -57,18 +57,28 @@ puts inp
 
 def player_input
     marker = []
-
     until (marker=='X' || marker == 'O')
-        puts 'Do you want to be X or O'
+        puts 'Player one, do you want to be X or O'
         marker = gets.chomp.upcase
     if marker == 'X' then
-        return puts 'Your mark is X'
+        player_mark1 = (marker)
+    puts "Player 1 mark is #{marker}"
     elsif marker == 'O' then
-        return puts 'Your mark is O'
+        player_mark1 = (marker)
+        puts "Player 1 mark is #{marker}"
     else
         puts 'Do you want to be X or O'
         marker = gets.chomp.upcase
     end
+end
+
+if marker == 'X' then 
+    player_mark2 = 'O'
+
+    puts "Player 2 mark is #{player_mark2}"
+else
+    player_mark2 = 'X'
+    puts "Player 2 mark is #{player_mark2}"
 end
 end
 
@@ -76,6 +86,9 @@ end
 # p display_matrix(test)
 output = player_input
 p output
+
+
+
 puts '                  ARE YOU READY?!!!'
 puts '             PRESS ENTER TO BEGIN THE GAME'
 $stdin.noecho(&:gets).chomp
