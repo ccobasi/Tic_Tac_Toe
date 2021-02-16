@@ -39,6 +39,21 @@ def display_matrix(board)
     puts ('  |   |')
 end
 
-test = ['X','O','X','O','X','O','X','O','X']
-p display_matrix(test)
+def player_input
+    marker = []
 
+    until (marker=='X' || marker == 'O')
+        puts 'Do you want to be X or O'
+        marker = gets.chomp.upcase
+    if marker == 'X' then
+        return ['X','O']
+    else
+        return ['O', 'X']
+    end
+end
+end
+
+# test = ['X','O','X','O','X','O','X','O','X']
+# p display_matrix(test)
+output = player_input
+p output
