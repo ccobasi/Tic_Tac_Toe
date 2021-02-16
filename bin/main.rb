@@ -7,11 +7,11 @@ puts '2) Player 1 & 2 need to select their marks (X or O)'
 puts '3) Players will need to select their positions to input their marks'
 puts "For example X on position 1 is:\n      [X] [ ] [ ]\n      [ ] [ ] [ ]\n      [ ] [ ] [ ]"
 puts '4) In order to win, you need to connect 3 of your marks in a line'
-puts "For example:\n      [X] [X] [X]\n      [X] [X] [ ]\n      [X] [ ] [X]"
+puts "For example, three different win conditions are:\n      [X] [X] [X]\n      [X] [X] [ ]\n      [X] [ ] [X]"
 puts 'PRESS ENTER TO CONTINUE'
 $stdin.noecho(&:gets).chomp
 
-
+#Inputs the players names
 puts 'Player 1, enter your Nickname:'
 nick1 = gets.chomp
 player_one = (nick1)
@@ -22,43 +22,11 @@ nick2 = gets.chomp
 player_two = (nick2)
 puts "Welcome: #{player_two}"
 
-# player_1 = $stdin.read
-# puts inp
-
-# def fill 
-#     @pos =  (1..9).to_a
-# end
-
-# def matrix 
-#     puts <<-fill 
-#     #{fill [0]} | #{fill [1]} | #{fill [2]}
-
-#     #{fill [3]} | #{fill [4]} | #{fill [5]}
-
-#     #{fill [6]} | #{fill [7]} | #{fill [8]}
-#     fill
-
-#     puts matrix
-# end
-
-# def display_matrix(board)
-#     puts ('  |   |')
-#     puts('' +board[0] +  ' |' + board[1]+ '  |' + board[2])
-#     puts ('  |   |')
-#     puts('----------')
-#     puts ('  |   |')
-#     puts('' +board[3] +  ' |' + board[4]+ '  |' + board[5])
-#     puts ('  |   |')
-#     puts('----------')
-#     puts ('  |   |')
-#     puts('' +board[6] +  ' |' + board[7]+ '  |' + board[8])
-#     puts ('  |   |')
-# end
-
+#Inputs the players Marks, selects the mark for player one and gisves player two the one thats left
 def player_input
     marker = []
     until (marker=='X' || marker == 'O')
-        puts 'Player one, do you want to be X or O'
+        puts 'Player one, do you want to be X or O?'
         marker = gets.chomp.upcase
     if marker == 'X' then
         player_mark1 = (marker)
@@ -67,7 +35,7 @@ def player_input
         player_mark1 = (marker)
         puts "Player 1 mark is #{marker}"
     else
-        puts 'Do you want to be X or O'
+        puts 'Player one, do you want to be X or O?'
         marker = gets.chomp.upcase
     end
 end
@@ -82,12 +50,10 @@ else
 end
 end
 
-# test = ['X','O','X','O','X','O','X','O','X']
-# p display_matrix(test)
 output = player_input
 p output
 
-
+#Begins the game
 
 puts '                  ARE YOU READY?!!!'
 puts '             PRESS ENTER TO BEGIN THE GAME'
@@ -112,6 +78,7 @@ puts  '         READY FOR THE NEXT ROUND?'
 puts '           PRESS ENTER TO CONTINUE'
 $stdin.noecho(&:gets).chomp
 
-#Repeat the cicle until the win condition is fulfiled
+#Repeat the cicle until the win condition is fulfiled 
+#Or the cicle gets to 9 iterations with no win condition, its a TIE
 
-#DISPLAY THE WINNER!!!
+#DISPLAY THE WINNER!!! (or tie)
