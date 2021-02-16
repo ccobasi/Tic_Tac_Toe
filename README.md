@@ -41,9 +41,9 @@ $ Ruby enumerables.rb
 - LinkedIn: [Emigdio Leon](https://linkedin.com/emigdio-leon-689109195)
 
 👤 **Chukwuma Obasi**
-- GitHub: []()
-- Twitter: []()
-- LinkedIn: []()
+- GitHub: [@ccobasi](https://github.com/ccobasi)
+- Twitter: [@obasichux](https://twitter.com/obasichux)
+- LinkedIn: [Chukwuma Obasi](https://www.linkedin.com/in/chukwuma-obasi-532b84188)
 
 ## Show your support
 
