@@ -22,8 +22,8 @@ nick2 = gets.chomp
 player_two = (nick2)
 puts "Welcome: #{player_two}"
 
-# player_1 = $stdin.read
-# puts inp
+player_1 = $stdin.read
+puts inp
 
 # def fill 
 #     @pos =  (1..9).to_a
@@ -63,8 +63,11 @@ def player_input
         marker = gets.chomp.upcase
     if marker == 'X' then
         return puts 'Your mark is X'
-    else
+    elsif marker == 'O' then
         return puts 'Your mark is O'
+    else
+        puts 'Do you want to be X or O'
+        marker = gets.chomp.upcase
     end
 end
 end
