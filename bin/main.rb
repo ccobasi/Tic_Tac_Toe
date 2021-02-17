@@ -62,7 +62,6 @@ def valid_position
     break if (1..9).include?(position) && !board[position - 1].is_a?(String)
 
     puts 'Please enter a valid number from 1 to 9 to be replaced by your symbol' unless (1..9).include?(position)
-
     position.gets.chomp.to_i
   end  
   position
@@ -70,15 +69,6 @@ end
 
 def space_check(board, position)
   board[position] == ''
-end
-
-def full_board_check(board)
-  for i in 0..9
-    if space_check(board, i)
-      return false
-    end
-  end
-  true
 end
 
 def player_choice(board)
