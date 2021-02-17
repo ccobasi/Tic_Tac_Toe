@@ -108,8 +108,10 @@ while turn <= 9
     # mark_two = pos2
     puts 'checking if the move is valid'
     puts "Your position to play is: #{pos2}"
+    puts "\n      [X] [O] [ ]\n      [ ] [ ] [ ]\n      [ ] [ ] [ ]" # gets the updated board after with positions
+    puts ''
   end
-  puts
+
   turn += 1
   if wincon == true # wincon is not yet initialized
     puts "Player #{player_one} is the winner" # fetch wiining player name
@@ -119,8 +121,6 @@ while turn <= 9
 end
 # this will display the board with the selected positions
 # and also make an assestment of the win condition
-
-puts "\n      [X] [O] [ ]\n      [ ] [ ] [ ]\n      [ ] [ ] [ ]"
 
 # Repeat the cicle until the win condition is fulfiled
 # Or the cicle gets to 9 iterations with no win condition, its a TIE
