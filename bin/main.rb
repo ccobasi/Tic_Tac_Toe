@@ -99,7 +99,7 @@ end
 
 def player_choice(board)
     position = 0
-    until position in [1,2,3,4,5,6,7,8,9] || != space_check(board, position)
+    until position in (1..9) || position != space_check(board, position)
         puts 'Choose your next position:(1-9)'
         position = gets.chomp.to_i
     return position
