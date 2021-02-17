@@ -8,7 +8,7 @@ puts '3) Players will need to select their positions to input their marks'
 puts "For example X on position 1 is:\n      [X] [ ] [ ]\n      [ ] [ ] [ ]\n      [ ] [ ] [ ]"
 puts '4) In order to win, you need to connect 3 of your marks in a line'
 puts "For example, three different win conditions are:\n      [X] [X] [X]\n      [X] [X] [ ]\n      [X] [ ] [X]"
-puts 'PRESS ANY KEY TO CONTINUE'
+puts 'PRESS ENTER TO CONTINUE'
 $stdin.noecho(&:gets).chomp
 
 # Inputs the players names
@@ -108,11 +108,16 @@ while turn <= 9
     # mark_two = pos2
     puts 'checking if the move is valid'
     puts "Your position to play is: #{pos2}"
+
+  end
+
+  turn += 1
+  if turn.odd?
+    puts "\n  The board now looks like this:"
     puts "\n      [X] [O] [ ]\n      [ ] [ ] [ ]\n      [ ] [ ] [ ]" # gets the updated board after with positions
     puts ''
   end
 
-  turn += 1
   if wincon == true # wincon is not yet initialized
     puts "Player #{player_one} is the winner" # fetch wiining player name
   elsif turn == 9
