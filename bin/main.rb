@@ -73,7 +73,7 @@ def space_check(board, position)
 end
 
 def full_board_check(board)
-  for i (1...10)
+  for i [1,2,3,4,5,6,7,8,9]
     if space_check(board, i)
       return false
     end
