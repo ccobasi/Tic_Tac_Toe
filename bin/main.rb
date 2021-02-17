@@ -63,8 +63,7 @@ def valid_position
 
     puts 'Please enter a valid number from 1 to 9 to be replaced by your symbol' unless (1..9).include?(position)
     position.gets.chomp.to_i
-  end  
-  
+  end
   position
 end
 
