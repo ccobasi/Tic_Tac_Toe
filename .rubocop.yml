@@ -7,8 +7,6 @@ AllCops:
 
 Layout/LineLength:
   Max: 120
-Layout/IndentationWidth:
-  Max: 4
 Metrics/MethodLength:
   Max: 20
 Metrics/AbcSize:
