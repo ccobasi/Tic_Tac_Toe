@@ -57,8 +57,23 @@ def choose_first
     end
 end
 
-output = choose_first
-p output
+def space_check(position, board)
+    loop do
+      break if (1..9).include?(position) && !board[position - 1].is_a?(String)
+
+      puts 'Please enter a valid number from 1 to 9 to be replaced by your symbol' unless (1..9).include?(position)
+
+      position = gets.chomp.to_i
+
+      puts 'Position already taken , Please choose another: '
+      position = gets.chomp.to_i
+    end
+    position
+  end
+
+  output = space_check(10, 3)
+  p output
+  
 
 # Begins the game
 
