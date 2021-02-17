@@ -53,19 +53,8 @@ def place_marker(board, marker, position)
   board[position] = marker
 end
 
-# def win_check(board, mark)
-#     return((board[7]==mark && board[8]==mark && board[9]==mark) || # acros the top
-#     (board[4]==mark && board[5]==mark && board[6]==mark) || # across the middle
-#     (board[1]==mark && board[2]==mark && board[3]==mark) || # across the bottom
-#     (board[7]==mark && board[4]==mark && board[1]==mark) || # down the left
-#     (board[8]==mark && board[5]==mark && board[2]==mark) || # down the middle
-#     (board[9]==mark && board[6]==mark && board[3]==mark) || # down the right
-#     (board[7]==mark && board[5]==mark && board[3]==mark) || # diagonal
-#     (board[9]==mark && board[5]==mark && board[1]==mark))   # diagonal
-# end
-
 def choose_first
-    (return 'Player 2 go first' if rand(0..1).zero?)
+  (return 'Player 2 go first' if rand(0..1).zero?)
 end
 
 def valid_position
@@ -75,8 +64,7 @@ def valid_position
     puts 'Please enter a valid number from 1 to 9 to be replaced by your symbol' unless (1..9).include?(position)
 
     position.gets.chomp.to_i
-  end
-    
+  end  
   position
 end
 
@@ -85,11 +73,10 @@ def space_check(board, position)
 end
 
 def full_board_check(board)
-  each i (1...10)
-    if space_check(board, i) 
-      return false
-    end
-  return true
+  for i (1...10) && space_check(board, i)
+    return false
+  end
+  true
 end
 
 def player_choice(board)
@@ -98,17 +85,13 @@ def player_choice(board)
     puts 'Choose your next position:(1-9)'
     position = gets.chomp.to_i
   end
-  return position
+  position
 end
 
 def replay
   rematch = puts 'Do you want to play again? Enter Yes or No: '.gets.chomp
   return rematch
 end
-
-  output = valid_position
-  p output
-  
 
 # Begins the game
 
