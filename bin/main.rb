@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 require 'io/console'
+require '../lib/board.rb'
 puts 'Hello Player!'
 puts 'Instuctions:'
 puts '1)Player 1 and Player 2 need to enter their nicknames'
@@ -10,6 +11,11 @@ puts '4) In order to win, you need to connect 3 of your marks in a line'
 puts "For example, three different win conditions are:\n      [X] [X] [X]\n      [X] [X] [ ]\n      [X] [ ] [X]"
 puts 'PRESS ENTER TO CONTINUE'
 $stdin.noecho(&:gets).chomp
+
+
+d_matrix = Board.new
+
+puts d_matrix.matrix_display
 
 # Inputs the players names
 puts 'Player 1, enter your Nickname:'
