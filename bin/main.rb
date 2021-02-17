@@ -72,7 +72,7 @@ def choose_first
     end
 end
 
-def space_check(position, board)
+def valid_position
     loop do
       break if (1..9).include?(position) && !board[position - 1].is_a?(String)
 
@@ -84,7 +84,33 @@ def space_check(position, board)
     position
   end
 
-  output = space_check(10, 3)
+def space_check(board,position)
+    return board[position] == ''
+end
+
+def full_board_check(board)
+    for i in (1...10)
+        if space_check(board,i) then
+            return false
+        end
+    return true
+    end
+end
+
+def player_choice(board)
+    position = 0
+    until position in [1,2,3,4,5,6,7,8,9] || != space_check(board, position)
+        puts 'Choose your next position:(1-9)'
+        position = gets.chomp.to_i
+    return position
+end
+
+def replay
+    rematch = puts 'Do you want to play again? Enter Yes or No: '.gets.chomp
+    return rematch
+end
+
+  output = valid_position
   p output
   
 
