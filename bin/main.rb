@@ -49,6 +49,21 @@ def player_input
   puts "Player 2 mark is #{player_mark2}"
 end
 
+def place_marker(board, marker, position)
+    board[position] = marker
+end
+
+def win_check(board,mark)
+    return((board[7]==mark && board[8]==mark && board[9]==mark) || # acros the top
+    (board[4]==mark && board[5]==mark && board[6]==mark) || # across the middle
+    (board[1]==mark && board[2]==mark && board[3]==mark) || # across the bottom
+    (board[7]==mark && board[4]==mark && board[1]==mark) || # down the left
+    (board[8]==mark && board[5]==mark && board[2]==mark) || # down the middle
+    (board[9]==mark && board[6]==mark && board[3]==mark) || # down the right
+    (board[7]==mark && board[5]==mark && board[3]==mark) || # diagonal
+    (board[9]==mark && board[5]==mark && board[1]==mark))   # diagonal
+end
+
 def choose_first
     if rand(0..1) == 0 then
         return 'Player 2 go first'
@@ -64,10 +79,8 @@ def space_check(position, board)
       puts 'Please enter a valid number from 1 to 9 to be replaced by your symbol' unless (1..9).include?(position)
 
       position = gets.chomp.to_i
-
-      puts 'Position already taken , Please choose another: '
-      position = gets.chomp.to_i
     end
+    
     position
   end
 
