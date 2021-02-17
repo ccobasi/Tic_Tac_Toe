@@ -60,9 +60,11 @@ end
 def valid_position
   loop do
     break if (1..9).include?(position) && !board[position - 1].is_a?(String)
+
     puts 'Please enter a valid number from 1 to 9 to be replaced by your symbol' unless (1..9).include?(position)
     position.gets.chomp.to_i
   end  
+  
   position
 end
 
