@@ -113,9 +113,13 @@ while turn <= 9
 
   turn += 1
   if turn.odd?
-    puts "\n  The board now looks like this:"
-    puts "\n      [X] [O] [ ]\n      [ ] [ ] [ ]\n      [ ] [ ] [ ]" # gets the updated board after with positions
-    puts ''
+    puts "\n  After the player two move the board now looks like this:"
+    puts "\n      [X] [ ] [ ]\n      [ ] [ ] [ ]\n      [ ] [ ] [ ] \n" # gets the updated board after with positions
+
+  else
+    puts "\n  After the player one move the board now looks like this:"
+    puts "\n      [X] [O] [ ]\n      [ ] [ ] [ ]\n      [ ] [ ] [ ] \n" # gets the updated board after with positions
+
   end
 
   if wincon == true # wincon is not yet initialized
