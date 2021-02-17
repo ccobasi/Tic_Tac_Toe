@@ -49,7 +49,15 @@ def player_input
   puts "Player 2 mark is #{player_mark2}"
 end
 
-output = player_input
+def choose_first
+    if rand(0..1) == 0 then
+        return 'Player 2 go first'
+    else
+        return 'Player 1 go first'
+    end
+end
+
+output = choose_first
 p output
 
 # Begins the game
