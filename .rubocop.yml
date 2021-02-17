@@ -6,10 +6,6 @@ AllCops:
 
   DisplayCopNames: true
 
-ruby:
-  enabled: true
-  config_file: .rubocop.yml
-  
 Layout/LineLength:
   Max: 120
 Metrics/MethodLength:
