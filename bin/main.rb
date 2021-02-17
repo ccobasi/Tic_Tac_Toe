@@ -8,7 +8,7 @@ puts '3) Players will need to select their positions to input their marks'
 puts "For example X on position 1 is:\n      [X] [ ] [ ]\n      [ ] [ ] [ ]\n      [ ] [ ] [ ]"
 puts '4) In order to win, you need to connect 3 of your marks in a line'
 puts "For example, three different win conditions are:\n      [X] [X] [X]\n      [X] [X] [ ]\n      [X] [ ] [X]"
-puts 'PRESS ENTER TO CONTINUE'
+puts 'PRESS ANY KEY TO CONTINUE'
 $stdin.noecho(&:gets).chomp
 
 # Inputs the players names
@@ -49,6 +49,9 @@ def player_input
   puts "Player 2 mark is #{player_mark2}"
 end
 
+output = player_input
+p output
+
 def place_marker(board, marker, position)
   board[position] = marker
 end
@@ -81,8 +84,7 @@ def player_choice(board)
 end
 
 def replay
-  rematch = puts 'Do you want to play again? Enter Yes or No: '.gets.chomp
-  rematch
+  puts 'Do you want to play again? Enter Yes or No: '.gets.chomp
 end
 
 # Begins the game
@@ -91,24 +93,34 @@ puts '                  ARE YOU READY?!!!'
 puts '             PRESS ENTER TO BEGIN THE GAME'
 $stdin.noecho(&:gets).chomp
 
-puts 'Player 1: select you position'
-pos1 = gets.chomp
-# mark_one = pos1
-puts "Your position to play is: #{pos1}"
-
-puts 'Player 2: select you position'
-pos2 = gets.chomp
-# mark_two = pos2
-puts "Your position to play is: #{pos2}"
-
+wincon = false
+turn = 1
+while turn <= 9
+  if turn.odd?
+    puts 'Player 1: select you position'
+    pos1 = gets.chomp
+    # mark_one = pos1
+    puts 'checking if the move is valid' # if position = true then proceed
+    puts "Your position to play is: #{pos1}"
+  else
+    puts 'Player 2: select you position'
+    pos2 = gets.chomp
+    # mark_two = pos2
+    puts 'checking if the move is valid'
+    puts "Your position to play is: #{pos2}"
+  end
+  puts
+  turn += 1
+  if wincon == true # wincon is not yet initialized
+    puts "Player #{player_one} is the winner" # fetch wiining player name
+  elsif turn == 9
+    puts 'This is a draw'
+  end
+end
 # this will display the board with the selected positions
 # and also make an assestment of the win condition
 
 puts "\n      [X] [O] [ ]\n      [ ] [ ] [ ]\n      [ ] [ ] [ ]"
-
-puts 'READY FOR THE NEXT ROUND?'
-puts 'PRESS ENTER TO CONTINUE'
-$stdin.noecho(&:gets).chomp
 
 # Repeat the cicle until the win condition is fulfiled
 # Or the cicle gets to 9 iterations with no win condition, its a TIE
