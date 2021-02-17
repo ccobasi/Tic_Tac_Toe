@@ -66,9 +66,6 @@ end
 
 def choose_first
     (return 'Player 2 go first' if rand(0..1).zero?)
-  else
-      return 'Player 1 go first'
-  end
 end
 
 def valid_position
@@ -88,12 +85,11 @@ def space_check(board, position)
 end
 
 def full_board_check(board)
-  each i in (1...10)
+  each i (1...10)
     if space_check(board, i) 
       return false
     end
   return true
-  end
 end
 
 def player_choice(board)
