@@ -100,8 +100,20 @@ while turn <= 9
       puts "Congratulations player #{player_one.blue} you are the winner!!!"
 
     end
-    bye = true
+    puts ' Do you want yo play again? (Y/N)'
 
+    end_game = gets.chomp
+    case end_game
+    when 'y', 'Y', 'yes', 'YES'
+      turn = 1
+      d_matrix.reset_game
+      puts "\n The board is clean and ready to play again!\n"
+      puts ''
+      puts d_matrix.matrix_display.yellow
+
+    when 'n', 'N', 'no', 'NO'
+      bye = true
+    end
   end
   break if bye == true
 end
