@@ -1,14 +1,17 @@
 #!/usr/bin/env ruby
 require 'io/console'
+require 'colorize'
 require '../lib/board.rb'
 puts 'Hello Player!'
 puts 'Instuctions:'
 puts '1)Player 1 and Player 2 need to enter their nicknames'
 puts '2) Player 1 & 2 need to select their marks (X or O)'
 puts '3) Players will need to select their positions to input their marks'
-puts "For example X on position 1 is:\n      [X] [ ] [ ]\n      [ ] [ ] [ ]\n      [ ] [ ] [ ]"
+puts "For example X on position 1 is:"   
+puts "      [X] [ ] [ ]\n      [ ] [ ] [ ]\n      [ ] [ ] [ ]".yellow
 puts '4) In order to win, you need to connect 3 of your marks in a line'
-puts "For example, three different win conditions are:\n      [X] [X] [X]\n      [X] [X] [ ]\n      [X] [ ] [X]"
+puts "For example, three different win conditions are:"
+puts "      [X] [X] [X]\n      [X] [X] [ ]\n      [X] [ ] [X]".yellow
 puts 'PRESS ENTER TO CONTINUE'
 $stdin.noecho(&:gets).chomp
 
@@ -30,7 +33,7 @@ puts "Welcome: #{player_two}"
 
   marker = []
   until %w[X O].include?(marker)
-    puts 'Player one, do you want to be X or O?'
+    puts 'Player 1, do you want to be X or O?'
     marker = gets.chomp.upcase
     case marker
     when 'X'
@@ -40,7 +43,7 @@ puts "Welcome: #{player_two}"
 
       puts "Player 1 mark is #{marker}"
     else
-      puts 'Player one, do you want to be X or O?'
+      puts 'Player 1, do you want to be X or O?'
       marker = gets.chomp.upcase
     end
   end
@@ -52,57 +55,20 @@ puts "Welcome: #{player_two}"
                  end
   puts "Player 2 mark is #{player_mark2}"
 
-# def place_marker(board, marker, position)
-#   board[position] = marker
-# end
-
-# def choose_first
-#   (return 'Player 2 go first' if rand(0..1).zero?)
-# end
-
-# def valid_position
-#   loop do
-#     break if (1..9).include?(position) && !board[position - 1].is_a?(String)
-
-#     puts 'Please enter a valid number from 1 to 9 to be replaced by your symbol' unless (1..9).include?(position)
-#     position.gets.chomp.to_i
-#   end
-#   position
-# end
-
- 
-# def space_check(board, position)
-#   board[position] == ''
-# end
-
-# def player_choice(board)
-#   position = 0
-#   until position (1..9) || position != space_check(board, position)
-#     puts 'Choose your next position:(1-9)'
-#     position = gets.chomp.to_i
-#   end
-#   position
-# end
-
-# def replay
-#   puts 'Do you want to play again? Enter Yes or No: '.gets.chomp
-# end
-
 # Begins the game
 
-puts '                  ARE YOU READY?!!!'
-puts '             PRESS ENTER TO BEGIN THE GAME'
+puts '                  ARE YOU READY?!!!'.green
+puts '             PRESS ENTER TO BEGIN THE GAME'.green
 $stdin.noecho(&:gets).chomp
 
 
-# win = d_matrix.win_con
 turn = 1
 while turn <= 9
   if turn.odd?
-    puts 'Player 1: select your position'
+    puts "\n Player 1: select your position"
     mark = marker
   else
-    puts 'Player 2: select your position'
+    puts "\n Player 2: select your position"
     mark = player_mark2
   end
 
@@ -116,39 +82,54 @@ while turn <= 9
   p arr.include?(pos.to_i)
   if arr.include?(pos.to_i)
     if turn.odd?
-      puts "\n  After the player two move the board now looks like this:"
-      puts d_matrix.matrix_display
+      puts "\n  After the player 2 move the board now looks like this:\n"
+      puts ''
+      puts d_matrix.matrix_display.yellow
     else
-      puts "\n  After the player one move the board now looks like this:"
-      puts d_matrix.matrix_display
+      puts "\n After the player 1 move the board now looks like this:\n"
+      puts ''
+      puts d_matrix.matrix_display.yellow
     end
     
   else
-      puts 'Invalid input. Enter number between 1-9'
+      puts 'Invalid input. Enter number between 1-9'.red
       turn -= 1
-      puts d_matrix.matrix_display
+      puts ''
+      puts d_matrix.matrix_display.yellow
   end
   
-  while d_matrix.win_con? == true  # wincon is not yet initialized
+  while d_matrix.win_con? == true  
     if turn == 10
       puts 'This is a draw' 
-      end_game = true
+      
     elsif turn.odd?
-     puts "Congratulations player #{player_two} you are the winner!!!" # fetch wiining player name
-     end_game = true
+     puts "Congratulations player #{player_two.blue} you are the winner!!!" 
+     puts " Do you want yo play again? (Y/N)"
+
+     end_game = gets.chomp    
+       case end_game
+         when 'y','Y','yes', 'YES'
+          turn = 1
+          puts d_matrix.matrix_display.yellow
+          
+         when 'n', 'N','no', 'NO' 
+           break
+       end
     else
-      puts "Congratulations player #{player_one} you are the winner!!!" # fetch wiining player name
-      end_game = true
+      puts "Congratulations player #{player_one.blue} you are the winner!!!"
+      puts " Do you want yo play again? (Y/N)"
+
+      end_game = gets.chomp    
+        case end_game
+          when 'y','Y','yes', 'YES'
+            turn = 1
+            puts d_matrix.matrix_display.yellow
+            
+          when 'n', 'N','no', 'NO' 
+            break
+        end
     end
     break
   end
-  
-  break if end_game == true
+ 
 end
-# this will display the board with the selected positions
-# and also make an assestment of the win condition
-
-# Repeat the cicle until the win condition is fulfiled
-# Or the cicle gets to 9 iterations with no win condition, its a TIE
-
-# DISPLAY THE WINNER!!! (or tie)
