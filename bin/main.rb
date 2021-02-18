@@ -116,8 +116,9 @@ while turn <= 9
     puts "\n  After the player one move the board now looks like this:"
     puts d_matrix.matrix_display
   end
-
-  while d_matrix.win_con?  # wincon is not yet initialized
+  p d_matrix.win_con?
+  
+  while d_matrix.win_con? == true  # wincon is not yet initialized
     if turn == 10
       puts 'This is a draw' 
     elsif turn.odd?
@@ -128,8 +129,8 @@ while turn <= 9
     break
     end_game = true
   end
-  if end_game == true then break
-  end
+  
+  
 end
 # this will display the board with the selected positions
 # and also make an assestment of the win condition
