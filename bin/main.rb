@@ -75,7 +75,7 @@ while turn <= 9
 
   turn += 1
   arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-  p arr.include?(pos.to_i)
+
   if arr.include?(pos.to_i)
     if turn.odd?
       puts "\n  After the player 2 move the board now looks like this:\n"
