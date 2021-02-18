@@ -98,10 +98,10 @@ $stdin.noecho(&:gets).chomp
 turn = 1
 while turn <= 9
   if turn.odd?
-    puts 'Player 1: select you position'
+    puts 'Player 1: select your position'
     mark = marker
   else
-    puts 'Player 2: select you position'
+    puts 'Player 2: select your position'
     mark = player_mark2
   end
 
@@ -116,21 +116,23 @@ while turn <= 9
     puts "\n  After the player one move the board now looks like this:"
     puts d_matrix.matrix_display
   end
-  p d_matrix.win_con?
+ 
   
   while d_matrix.win_con? == true  # wincon is not yet initialized
     if turn == 10
       puts 'This is a draw' 
+      end_game = true
     elsif turn.odd?
-     puts "Player #{player_two} is the winner" # fetch wiining player name
+     puts "Congratulations player #{player_two} you are the winner!!!" # fetch wiining player name
+     end_game = true
     else
-      puts "Player #{player_one} is the winner" # fetch wiining player name
+      puts "Congratulations player #{player_one} you are the winner!!!" # fetch wiining player name
+      end_game = true
     end
     break
-    end_game = true
   end
   
-  
+  break if end_game == true
 end
 # this will display the board with the selected positions
 # and also make an assestment of the win condition
