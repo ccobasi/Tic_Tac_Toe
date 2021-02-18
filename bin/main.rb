@@ -69,6 +69,7 @@ puts "Welcome: #{player_two}"
 #   end
 #   position
 # end
+
  
 # def space_check(board, position)
 #   board[position] == ''
@@ -108,15 +109,25 @@ while turn <= 9
   pos = gets.chomp
   d_matrix.change(pos, mark)
 
+
+
   turn += 1
-  if turn.odd?
-    puts "\n  After the player two move the board now looks like this:"
-    puts d_matrix.matrix_display
+  arr = [1,2,3,4,5,6,7,8,9]
+  p arr.include?(pos.to_i)
+  if arr.include?(pos.to_i)
+    if turn.odd?
+      puts "\n  After the player two move the board now looks like this:"
+      puts d_matrix.matrix_display
+    else
+      puts "\n  After the player one move the board now looks like this:"
+      puts d_matrix.matrix_display
+    end
+    
   else
-    puts "\n  After the player one move the board now looks like this:"
-    puts d_matrix.matrix_display
+      puts 'Invalid input. Enter number between 1-9'
+      turn -= 1
+      puts d_matrix.matrix_display
   end
- 
   
   while d_matrix.win_con? == true  # wincon is not yet initialized
     if turn == 10
