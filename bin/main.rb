@@ -94,7 +94,7 @@ puts '             PRESS ENTER TO BEGIN THE GAME'
 $stdin.noecho(&:gets).chomp
 
 
-wincon = true
+# win = d_matrix.win_con
 turn = 1
 while turn <= 9
   if turn.odd?
@@ -117,7 +117,7 @@ while turn <= 9
     puts d_matrix.matrix_display
   end
 
-  while wincon == true # wincon is not yet initialized
+  while d_matrix.win_con?  # wincon is not yet initialized
     if turn == 10
       puts 'This is a draw' 
     elsif turn.odd?
@@ -126,6 +126,9 @@ while turn <= 9
       puts "Player #{player_one} is the winner" # fetch wiining player name
     end
     break
+    end_game = true
+  end
+  if end_game == true then break
   end
 end
 # this will display the board with the selected positions

@@ -4,6 +4,8 @@ class Board
 
     def initialize 
         @cell = { '1' => "\s", '2' => "\s", '3' => "\s", '4' => "\s", '5' => "\s", '6' => "\s", '7' => "\s", '8' => "\s", '9' => "\s" }
+        @win_con = false
+        
     end
 
     def matrix_display 
@@ -16,22 +18,19 @@ class Board
         @cell[pos] = value
       end
 
-    # def win_con(board)
-    #     win = false
-    #     conditions = [
-    #         [board[0], board[1], board[2]], ||
-    #         [board[3], board[4], board[5]], ||
-    #         [board[6], board[7], board[8]], ||
-    #         [board[0], board[3], board[6]], ||
-    #         [board[1], board[4], board[7]], ||
-    #         [board[2], board[5], board[8]], ||
-    #         [board[0], board[4], board[8]], ||
-    #         [board[2], board[4], board[6]], 
-    #     ]
-    #     condition.any? do |element|
-    #         element.all? {|i| i == 'X' || 'O' then win = true}
-    #     end
-    # end
+    def win_con?
+        @win_con = true if
+            @cell.slice('1', '2', '3').values.all?('X' && 'O') ||
+            @cell.slice('4', '5', '6').values.all?('X' && 'O') ||
+            @cell.slice('7', '8', '9').values.all?('X' && 'O') ||
+            @cell.slice('1', '4', '7').values.all?('X' && 'O') ||
+            @cell.slice('2', '5', '8').values.all?('X' && 'O') ||
+            @cell.slice('3', '6', '9').values.all?('X' && 'O') ||
+            @cell.slice('1', '5', '9').values.all?('X' && 'O') ||
+            @cell.slice('3', '5', '7').values.all?('X' && 'O')
+        
+    
+    end
    
     
 
