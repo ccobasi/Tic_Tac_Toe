@@ -101,35 +101,16 @@ while turn <= 9
   while d_matrix.win_con? == true  
     if turn == 10
       puts 'This is a draw' 
-      
+      bye = true
     elsif turn.odd?
      puts "Congratulations player #{player_two.blue} you are the winner!!!" 
-     puts " Do you want yo play again? (Y/N)"
-
-     end_game = gets.chomp    
-       case end_game
-         when 'y','Y','yes', 'YES'
-          turn = 1
-          puts d_matrix.matrix_display.yellow
-          
-         when 'n', 'N','no', 'NO' 
-           break
-       end
+      bye = true
     else
       puts "Congratulations player #{player_one.blue} you are the winner!!!"
-      puts " Do you want yo play again? (Y/N)"
-
-      end_game = gets.chomp    
-        case end_game
-          when 'y','Y','yes', 'YES'
-            turn = 1
-            puts d_matrix.matrix_display.yellow
-            
-          when 'n', 'N','no', 'NO' 
-            break
-        end
+     bye = true
     end
     break
   end
- 
+ if bye == true then break
+ end
 end
