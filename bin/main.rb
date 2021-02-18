@@ -69,7 +69,7 @@ puts "Welcome: #{player_two}"
 #   end
 #   position
 # end
-
+ 
 # def space_check(board, position)
 #   board[position] == ''
 # end
@@ -94,7 +94,7 @@ puts '             PRESS ENTER TO BEGIN THE GAME'
 $stdin.noecho(&:gets).chomp
 
 
-wincon = false
+wincon = true
 turn = 1
 while turn <= 9
   if turn.odd?
@@ -117,10 +117,15 @@ while turn <= 9
     puts d_matrix.matrix_display
   end
 
-  if wincon == true # wincon is not yet initialized
-    puts "Player #{player_one} is the winner" # fetch wiining player name
-  elsif turn == 9
-    puts 'This is a draw'
+  while wincon == true # wincon is not yet initialized
+    if turn == 10
+      puts 'This is a draw' 
+    elsif turn.odd?
+     puts "Player #{player_two} is the winner" # fetch wiining player name
+    else
+      puts "Player #{player_one} is the winner" # fetch wiining player name
+    end
+    break
   end
 end
 # this will display the board with the selected positions
