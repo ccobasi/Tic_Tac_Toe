@@ -15,8 +15,6 @@ $stdin.noecho(&:gets).chomp
 
 d_matrix = Board.new
 
-puts d_matrix.matrix_display
-
 # Inputs the players names
 puts 'Player 1, enter your Nickname:'
 nick1 = gets.chomp
@@ -29,7 +27,7 @@ player_two = nick2
 puts "Welcome: #{player_two}"
 
 # Inputs the players Marks, selects the mark for player one and gisves player two the one thats left
-def player_input
+
   marker = []
   until %w[X O].include?(marker)
     puts 'Player one, do you want to be X or O?'
@@ -53,45 +51,41 @@ def player_input
                    'X'
                  end
   puts "Player 2 mark is #{player_mark2}"
-end
 
-output = player_input
-p output
+# def place_marker(board, marker, position)
+#   board[position] = marker
+# end
 
-def place_marker(board, marker, position)
-  board[position] = marker
-end
+# def choose_first
+#   (return 'Player 2 go first' if rand(0..1).zero?)
+# end
 
-def choose_first
-  (return 'Player 2 go first' if rand(0..1).zero?)
-end
+# def valid_position
+#   loop do
+#     break if (1..9).include?(position) && !board[position - 1].is_a?(String)
 
-def valid_position
-  loop do
-    break if (1..9).include?(position) && !board[position - 1].is_a?(String)
+#     puts 'Please enter a valid number from 1 to 9 to be replaced by your symbol' unless (1..9).include?(position)
+#     position.gets.chomp.to_i
+#   end
+#   position
+# end
 
-    puts 'Please enter a valid number from 1 to 9 to be replaced by your symbol' unless (1..9).include?(position)
-    position.gets.chomp.to_i
-  end
-  position
-end
+# def space_check(board, position)
+#   board[position] == ''
+# end
 
-def space_check(board, position)
-  board[position] == ''
-end
+# def player_choice(board)
+#   position = 0
+#   until position (1..9) || position != space_check(board, position)
+#     puts 'Choose your next position:(1-9)'
+#     position = gets.chomp.to_i
+#   end
+#   position
+# end
 
-def player_choice(board)
-  position = 0
-  until position (1..9) || position != space_check(board, position)
-    puts 'Choose your next position:(1-9)'
-    position = gets.chomp.to_i
-  end
-  position
-end
-
-def replay
-  puts 'Do you want to play again? Enter Yes or No: '.gets.chomp
-end
+# def replay
+#   puts 'Do you want to play again? Enter Yes or No: '.gets.chomp
+# end
 
 # Begins the game
 
@@ -99,33 +93,28 @@ puts '                  ARE YOU READY?!!!'
 puts '             PRESS ENTER TO BEGIN THE GAME'
 $stdin.noecho(&:gets).chomp
 
+
 wincon = false
 turn = 1
 while turn <= 9
   if turn.odd?
     puts 'Player 1: select you position'
-    pos1 = gets.chomp
-    # mark_one = pos1
-    puts 'checking if the move is valid' # if position = true then proceed
-    puts "Your position to play is: #{pos1}"
+    mark = marker
   else
     puts 'Player 2: select you position'
-    pos2 = gets.chomp
-    # mark_two = pos2
-    puts 'checking if the move is valid'
-    puts "Your position to play is: #{pos2}"
-
+    mark = player_mark2
   end
+
+  pos = gets.chomp
+  d_matrix.change(pos, mark)
 
   turn += 1
   if turn.odd?
     puts "\n  After the player two move the board now looks like this:"
-    puts "\n      [X] [ ] [ ]\n      [ ] [ ] [ ]\n      [ ] [ ] [ ] \n" # gets the updated board after with positions
-
+    puts d_matrix.matrix_display
   else
     puts "\n  After the player one move the board now looks like this:"
-    puts "\n      [X] [O] [ ]\n      [ ] [ ] [ ]\n      [ ] [ ] [ ] \n" # gets the updated board after with positions
-
+    puts d_matrix.matrix_display
   end
 
   if wincon == true # wincon is not yet initialized
