@@ -37,16 +37,33 @@ git clone URL/SSH key
 * On Windows:
 - Start a new Terminal 
 - Go to the directory where you cloned the game
-- Type cd bin and press ENTER
-- Type ruby main.rb and press ENTER
+- Type:
+```
+ cd bin
+```
+and press ENTER
+
+- Type:
+```
+ ruby main.rb 
+```
+and press ENTER
 
 
 * Mac & Linux:
 - Start a new Terminal 
 - Go to the directory where you cloned the game
-- Type cd bin and press ENTER
-- Type $ ruby main.rb and press ENTER
+- Type: 
+```
+cd bin
+```
+and press ENTER
 
+- Type:
+```
+ $ ruby main.rb
+```
+and press ENTER
 
 ## Instructions:
 
