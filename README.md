@@ -5,6 +5,8 @@
 
 Implementation of Tic-Tac-Toe classic game
 
+![screenshot](screenshot.png)
+
 ## Built With
 
 - Ruby
@@ -35,12 +37,15 @@ git clone URL/SSH key
 * On Windows:
 - Start a new Terminal 
 - Go to the directory where you cloned the game
-
+- Type cd bin and press ENTER
+- Type ruby main.rb and press ENTER
 
 
 * Mac & Linux:
 - Start a new Terminal 
 - Go to the directory where you cloned the game
+- Type cd bin and press ENTER
+- Type $ ruby main.rb and press ENTER
 
 
 ## Instructions:
@@ -54,23 +59,15 @@ Gameplay:
 2) Players will need to select their positions (1 to 9) to input their marks one turn after the other
 
 For example X on position 1 is: 
-       1   2   3
-      [X] [ ] [ ]
-       4   5   6
-      [ ] [ ] [ ]
-       7   8   9
-      [ ] [ ] [ ]
+
+![screenshot](ex1.png)
       
 3) Players need to input their positions on empty spaces or the game will display an invalid input error and make you select again  
 4) In order to win, you need to connect 3 of your marks in a row, column or diagonal
 
 For example, three different win conditions are (1,2,3 / 1,4,7 / 3,5,7):
-       1   2   3
-      [X] [X] [X]
-       4   5   6
-      [X] [X] [ ]
-       7   8   9     
-      [X] [ ] [ ]
+
+![screenshot](ex2.png)
 
 5) The game asks you if you want to play again input YES/NO, if you dont want to play again, the game will end
 
