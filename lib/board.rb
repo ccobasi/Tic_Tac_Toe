@@ -1,6 +1,6 @@
 # rubocop:disable Metrics/CyclomaticComplexity
 # rubocop:disable Metrics/PerceivedComplexity
-# rubocop:disable Metrics/AbcSize
+
 
 class Board
   attr_accessor :cell
@@ -21,7 +21,11 @@ class Board
   end
 
   def win_con?
-    @win_con = true if
+    @win_con = true if for_x || for_o
+
+  end
+
+  def for_x
         # for X
         @cell.slice('1', '2', '3').values.all?('X') ||
         @cell.slice('4', '5', '6').values.all?('X') ||
@@ -30,7 +34,10 @@ class Board
         @cell.slice('2', '5', '8').values.all?('X') ||
         @cell.slice('3', '6', '9').values.all?('X') ||
         @cell.slice('1', '5', '9').values.all?('X') ||
-        @cell.slice('3', '5', '7').values.all?('X') ||
+        @cell.slice('3', '5', '7').values.all?('X') 
+  end
+
+  def for_o
         # for O
         @cell.slice('1', '2', '3').values.all?('O') ||
         @cell.slice('4', '5', '6').values.all?('O') ||
@@ -50,4 +57,3 @@ end
 
 # rubocop:enable Metrics/CyclomaticComplexity
 # rubocop:enable Metrics/PerceivedComplexity
-# rubocop:enable Metrics/AbcSize
