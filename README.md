@@ -3,16 +3,11 @@
 
 ## RUBY Tic Tac Toe
 
-
+Implementation of Tic-Tac-Toe classic game
 
 ## Built With
 
 - Ruby
-
-## Getting Started
-
-- Run this command in your OS terminal: `git clone https://github.com/ccobasi/Tic_Tac_Toe.git` to get a copy of the project.
-
 
 ### Prerequisites
 
@@ -20,6 +15,10 @@
 Have Ruby installed
 * Mac & Linux:
 Latest version of Ruby installed
+
+## Getting Started
+
+- Run this command in your OS terminal: `git clone https://github.com/ccobasi/Tic_Tac_Toe.git` to get a copy of the project.
 
 ### Setup
 
@@ -34,27 +33,46 @@ git clone URL/SSH key
 ### Usage
 
 * On Windows:
+- Start a new Terminal 
+- Go to the directory where you cloned the game
 
-- Go into the Tic_Tac_Toe/bin directory.
-- enter the following commands: ruby main.rb
+
 
 * Mac & Linux:
+- Start a new Terminal 
+- Go to the directory where you cloned the game
 
-- Go into the Tic_Tac_Toe/bin directory.
-- enter the following commands: ruby main.rb
 
-- Follow the game instructions.
+## Instructions:
 
-## Game Instructions
+- Setup:
+1) Player 1 and Player 2 need to enter their nicknames
+2) Player 1 needs to select his mark (X or O), Player 2 gets the leftover mark
 
-1. Enter the name of the player who is going to use the "X" symbol.
-2. Enter the name of the second player. ("O")
-3. Player with the "X" symbol starts playing choosing the board number between 1 and 9.
-4. Second player chooses a number between 1 and 9 from the available spaces.
-5. The players continue marking until one player gets three of their marks in a vertical, horizontal or diagonal pattern.
-6. If no player gets three marks in a pattern, the game ends in a tie.
-7. You can choose to play again or end the game.
+Gameplay:
+1) Press enter to begin the game!
+2) Players will need to select their positions (1 to 9) to input their marks one turn after the other
 
+For example X on position 1 is: 
+       1   2   3
+      [X] [ ] [ ]
+       4   5   6
+      [ ] [ ] [ ]
+       7   8   9
+      [ ] [ ] [ ]
+      
+3) Players need to input their positions on empty spaces or the game will display an invalid input error and make you select again  
+4) In order to win, you need to connect 3 of your marks in a row, column or diagonal
+
+For example, three different win conditions are (1,2,3 / 1,4,7 / 3,5,7):
+       1   2   3
+      [X] [X] [X]
+       4   5   6
+      [X] [X] [ ]
+       7   8   9     
+      [X] [ ] [ ]
+
+5) The game asks you if you want to play again input YES/NO, if you dont want to play again, the game will end
 
 ## Authors
 
