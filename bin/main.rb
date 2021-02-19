@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 require 'io/console'
-require 'colorize'
-require '../lib/board'
+require  'colorize'
+require_relative  '../lib/board'
 puts 'Hello Player!'
 puts 'Instuctions:'
 puts '1)Player 1 and Player 2 need to enter their nicknames'
@@ -28,7 +28,7 @@ nick2 = gets.chomp
 player_two = nick2
 puts "Welcome: #{player_two}"
 
-# Inputs the players Marks, selects the mark for player one and gisves player two the one thats left
+# Inputs the players Marks, selects the mark for player one and gives player two the one thats left
 
 marker = []
 until %w[X O].include?(marker)
@@ -107,11 +107,12 @@ while turn <= 9
     when 'y', 'Y', 'yes', 'YES'
       turn = 1
       d_matrix.reset_game
-      puts "\n The board is clean and ready to play again!\n"
-      puts ''
+      puts "\n The board is clean and ready to play again!\n".green
+      puts "\n"
       puts d_matrix.matrix_display.yellow
 
     when 'n', 'N', 'no', 'NO'
+      puts "\n See you next time, player!\n"
       bye = true
     end
   end
