@@ -98,7 +98,7 @@ while turn <= 9
 
   if d_matrix.win_con? == true
     if turn == 10
-      puts 'This is a draw'
+      puts 'The game has ended in a draw'.green
 
     elsif turn.odd?
       puts "Congratulations player #{player_two.blue} you are the winner!!!"
