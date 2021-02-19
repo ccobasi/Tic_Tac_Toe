@@ -96,11 +96,25 @@ while turn <= 9
   puts ''
   puts d_matrix.matrix_display.yellow
 
-  if d_matrix.win_con? == true
-    if turn == 10
-      puts 'The game has ended in a draw'.green
+  if turn == 10
+    puts 'The game has ended in a draw'.green
+    puts ' Do you want yo play again? (Y/N)'
+    end_game_draw = gets.chomp
+    case end_game_draw
+    when 'y', 'Y', 'yes', 'YES'
+      turn = 1
+      d_matrix.reset_game
+      puts "\n The board is clean and ready to play again!\n".green
+      puts "\n"
+      puts d_matrix.matrix_display.yellow
 
-    elsif turn.odd?
+    when 'n', 'N', 'no', 'NO'
+      puts "\n See you next time, player!\n"
+      bye = true
+    end
+  end
+  if d_matrix.win_con? == true
+    if turn.odd?
       puts "Congratulations player #{player_two.blue} you are the winner!!!"
 
     else
