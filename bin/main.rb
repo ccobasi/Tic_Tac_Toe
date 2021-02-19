@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 require 'io/console'
-require  'colorize'
-require_relative  '../lib/board'
+require 'colorize'
+require_relative '../lib/board'
 puts 'Hello Player!'
 puts 'Instuctions:'
 puts '1)Player 1 and Player 2 need to enter their nicknames'
@@ -71,7 +71,14 @@ while turn <= 9
   end
 
   pos = gets.chomp
-  d_matrix.change(pos, mark)
+
+  empty = d_matrix.empty(pos)
+  if empty == true
+    puts 'Invalid input. Choose an empty spot'.red
+    turn -= 1
+  else
+    d_matrix.change(pos, mark)
+  end
 
   turn += 1
   arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
