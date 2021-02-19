@@ -32,9 +32,8 @@ git clone URL/SSH key
 ```
 - If you don't have git you can download this project and unzip it.
 
-### Usage
+### Usage on Windows:
 
-* On Windows:
 - Start a new Terminal 
 - Go to the directory where you cloned the game
 - Type:
@@ -49,8 +48,8 @@ and press ENTER
 ```
 and press ENTER
 
+### Usage on Mac & Linux::
 
-* Mac & Linux:
 - Start a new Terminal 
 - Go to the directory where you cloned the game
 - Type: 
@@ -63,7 +62,7 @@ and press ENTER
 ```
  $ ruby main.rb
 ```
-and press ENTER
+
 
 ## Instructions:
 
