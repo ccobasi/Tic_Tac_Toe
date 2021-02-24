@@ -20,7 +20,11 @@ class Board
   end
 
   def win_con?
-    @win_con = true if for_x || for_o
+    if for_x || for_o 
+      @win_con = true
+  else
+    @win_con = false
+  end
   end
 
   def for_x
