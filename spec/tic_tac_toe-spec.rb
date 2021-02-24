@@ -61,6 +61,14 @@ describe Board do
         end
     end
 
+    describe '#reset_game' do
+        it 'returns empty board' do
+            d_matrix.matrix_display.reset_game
+            expect(d_matrix.matrix_display).to eq(d_matrix)
+            
+        end
+    end
+
 
 end
 
