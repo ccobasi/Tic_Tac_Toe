@@ -48,7 +48,20 @@ describe Board do
         end
     end
 
-   
+    describe '#win_con?' do
+        it 'checks if win condition is valid (returns true if there is win condition) ' do
+            empty_tic_tac_toe.win_con?
+            expect(empty_tic_tac_toe.win_con?).to be true
+            
+        end
+        it 'checks if win condition is invalid (returns false if there is no win condition) ' do
+            empty_tic_tac_toe.win_con?
+            expect(empty_tic_tac_toe.win_con?).to be false
+            
+        end
+    end
+
+
 end
 
 
