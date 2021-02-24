@@ -1,5 +1,4 @@
 # rubocop:disable Metrics/CyclomaticComplexity
-# rubocop:disable Metrics/PerceivedComplexity
 
 class Board
   attr_reader :cell
@@ -20,11 +19,11 @@ class Board
   end
 
   def win_con?
-    if for_x || for_o 
-      @win_con = true
-  else
-    @win_con = false
-  end
+    @win_con = if for_x || for_o
+                 true
+               else
+                 false
+               end
   end
 
   def for_x
@@ -62,4 +61,3 @@ class Board
 end
 
 # rubocop:enable Metrics/CyclomaticComplexity
-# rubocop:enable Metrics/PerceivedComplexity
