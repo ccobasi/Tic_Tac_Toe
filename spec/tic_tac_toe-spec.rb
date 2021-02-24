@@ -69,6 +69,18 @@ describe Board do
         end
     end
 
+    describe '#empty' do
+        it 'checks if the cell is empty and return true if cell is not empty' do
+            outcome = @cell[input] !== "\s"
+            expect(outcome).to be true
+            
+        end
+        it 'checks if the cell is empty and return false if cell is empty' do
+            outcome = @cell[input] == "\s"
+            expect(outcome).to be false
+            
+        end
+    end
 
 end
 
