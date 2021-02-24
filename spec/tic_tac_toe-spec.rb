@@ -48,39 +48,7 @@ describe Board do
         end
     end
 
-    describe '#win_con?' do
-        it 'checks if win condition is valid (returns true if there is win condition) ' do
-            empty_tic_tac_toe.win_con?
-            expect(empty_tic_tac_toe.win_con?).to be true
-            
-        end
-        it 'checks if win condition is invalid (returns false if there is no win condition) ' do
-            empty_tic_tac_toe.win_con?
-            expect(empty_tic_tac_toe.win_con?).to be false
-            
-        end
-    end
-    
-    describe '#reset_game' do
-        it 'returns empty board' do
-            d_matrix.matrix_display.reset_game
-            expect(d_matrix.matrix_display).to eq(d_matrix)
-            
-        end
-    end
-
-    describe '#empty' do
-        it 'checks if the cell is empty and return true if cell is not empty' do
-            outcome = @cell[input] !== "\s"
-            expect(outcome).to be true
-            
-        end
-        it 'checks if the cell is empty and return false if cell is empty' do
-            outcome = @cell[input] == "\s"
-            expect(outcome).to be false
-            
-        end
-    end
+   
 end
 
 
