@@ -98,7 +98,7 @@ For example, three different win conditions are (1,2,3 / 1,4,7 / 3,5,7):
 👤 **Chukwuma Obasi**
 - GitHub: [@ccobasi](https://github.com/ccobasi)
 - Twitter: [@obasichux](https://twitter.com/obasichux)
-- LinkedIn: [Chukwuma Obasi](https://www.linkedin.com/in/chukwuma-obasi-532b84188)
+- LinkedIn: [Chukwuma Obasi](https://www.linkedin.com/in/chukwuma-obasi)
 
 ## Show your support
 
