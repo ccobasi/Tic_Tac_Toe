@@ -10,8 +10,12 @@ describe Board do
   end
 
   describe '#change' do
-    it 'replaces the marks in the board' do
+    it 'replaces the marks in the board to X' do
       expect(board.change('1', 'X')).to eq('X')
+    end
+
+    it 'replaces the marks in the board to O' do
+      expect(board.change('2', 'O')).to eq('O')
     end
   end
 
