@@ -1,4 +1,5 @@
 # rubocop:disable Metrics/CyclomaticComplexity
+# rubocop:disable Metrics/PerceivedComplexity
 
 class Board
   attr_reader :cell
@@ -61,3 +62,4 @@ class Board
 end
 
 # rubocop:enable Metrics/CyclomaticComplexity
+# rubocop:enable Metrics/PerceivedComplexity
