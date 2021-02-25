@@ -28,7 +28,6 @@ class Board
   end
 
   def for_x
-    
     @cell.slice('1', '2', '3').values.all?('X') ||
       @cell.slice('4', '5', '6').values.all?('X') ||
       @cell.slice('7', '8', '9').values.all?('X') ||
@@ -40,7 +39,6 @@ class Board
   end
 
   def for_o
-    
     @cell.slice('1', '2', '3').values.all?('O') ||
       @cell.slice('4', '5', '6').values.all?('O') ||
       @cell.slice('7', '8', '9').values.all?('O') ||
