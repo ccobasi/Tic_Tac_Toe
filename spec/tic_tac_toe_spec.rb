@@ -1,4 +1,3 @@
-# spec/tic_tac_toe-spec.rb
 require_relative '../lib/board'
 require_relative '../bin/main'
 
@@ -38,19 +37,63 @@ describe Board do
 
   describe '#change' do
     it 'changes the value of the choosen cell in the array' do
-      d_matrix.change(5)
-      expect(d_matrix.matrix_display).to eq([1, 2, 3, 4, 'Y', 6, 7, 8, 9])
+        expect(d_matrix.change('1', 'X')).to eq('X')
+    end
+    it 'changes the value of the choosen cell in the array' do
+      expect(d_matrix.change('2', 'O')).to eq('O')
     end
   end
 
   describe '#win_con?' do
     it 'checks if win condition is valid (returns true if there is win condition) ' do
-      empty_tic_tac_toe.win_con?
-      expect(empty_tic_tac_toe.win_con?).to be true
+      d_matrix.change('1', 'X')
+      d_matrix.change('2', 'X')
+      d_matrix.change('3', 'X')
+
+      expect(d_matrix.win_con?).to be true
     end
     it 'checks if win condition is invalid (returns false if there is no win condition) ' do
-      empty_tic_tac_toe.win_con?
-      expect(empty_tic_tac_toe.win_con?).to be false
+      d_matrix.change('1', 'X')
+      d_matrix.change('2', 'O')
+      d_matrix.change('3', 'X')
+
+      expect(d_matrix.win_con?).to be false
+    end
+  end
+
+  describe '#for_x' do
+    it 'return true if 3 marks are X in any row, column or diagonal' do
+      board.change('3', 'X')
+      board.change('6', 'X')
+      board.change('9', 'X')
+
+      expect(board.for_x).to be true
+    end
+
+    it 'return false if 3 marks are not X in any row, column or diagonal' do
+      board.change('1', 'X')
+      board.change('2', 'O')
+      board.change('3', 'X')
+
+      expect(board.for_x).to be false
+    end
+  end
+
+  describe '#for_o' do
+    it 'return true if 3 marks are O in any row, column or diagonal' do
+      board.change('1', 'O')
+      board.change('4', 'O')
+      board.change('7', 'O')
+
+      expect(board.for_o).to be true
+    end
+
+    it 'return false if 3 marks are not O in any row, column or diagonal' do
+      board.change('1', 'O')
+      board.change('2', 'X')
+      board.change('3', 'O')
+
+      expect(board.for_o).to be false
     end
   end
 
