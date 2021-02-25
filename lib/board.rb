@@ -20,11 +20,14 @@ class Board
   end
 
   def win_con?
-    @win_con = true if for_x || for_o
+    @win_con = if for_x || for_o
+                 true
+               else
+                 false
+               end
   end
 
   def for_x
-    # for X
     @cell.slice('1', '2', '3').values.all?('X') ||
       @cell.slice('4', '5', '6').values.all?('X') ||
       @cell.slice('7', '8', '9').values.all?('X') ||
@@ -36,7 +39,6 @@ class Board
   end
 
   def for_o
-    # for O
     @cell.slice('1', '2', '3').values.all?('O') ||
       @cell.slice('4', '5', '6').values.all?('O') ||
       @cell.slice('7', '8', '9').values.all?('O') ||
